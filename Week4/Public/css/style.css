@@ -1,0 +1,205 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fdf6ec;
+    color: #1a1a2e;
+}
+
+nav {
+    background-color: #1a1a2e !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-size {
+    width: 95%;
+    margin: 0 auto;
+}
+
+nav .brand-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fdf6ec;
+    letter-spacing: 1px;
+}
+
+nav ul a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+nav ul a:hover {
+    color: #c8813a !important;
+}
+
+#heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #2a2e1a;
+    margin-top: 50px;
+    line-height: 1.2;
+    text-shadow: 1px 2px 0 rgba(200, 129, 58, 0.15);
+}
+
+.flow-text {
+    color: #533204;
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 24px;
+    font-size: 1.1rem !important;
+    line-height: 1.75;
+}
+
+.materialboxed-image {
+    margin: 0 auto;
+    max-height: 380px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.18);
+    display: block;
+}
+
+.click-me-button {
+    background-color: #fdf6ec !important;
+    color: #533204;
+    border-radius: 30px;
+    padding: 0 36px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 36px;
+    font-size: 1rem;
+    box-shadow: 0 4px 16px rgba(200, 129, 58, 0.4);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.click-me-button:hover {
+    background-color: #533204 !important;
+    color: #fdf6ec;
+    box-shadow: 0 6px 20px rgba(160, 97, 30, 0.45);
+}
+
+.section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #533204;
+    margin: 48px 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--amber);
+    display: inline-block;
+}
+
+.book-card {
+    border-radius: 10px !important;
+    overflow: hidden;
+    text-align: left !important;
+    box-shadow: 0 4px 20px rgba(26, 26, 46, 0.10) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background-color: var(--card-bg) !important;
+    height: auto !important;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(26, 26, 46, 0.18) !important;
+}
+
+.book-card .card-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 220px;
+}
+
+.book-card .card-content {
+    background: #ffffff;
+}
+
+.book-card .card-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.05rem !important;
+    color: #1a1a2e !important;
+    font-weight: 700;
+}
+
+.book-card .card-reveal {
+    background-color: #fdf0e2 !important;
+    color: #1a1a2e !important;
+    padding: 20px;
+}
+
+.book-card .card-content a {
+    color: #533204;
+    font-weight: 400;
+    text-align: left !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+
+.book-card .card-content a:hover {
+    color: #2b1901;
+    text-decoration: underline;
+}
+
+.book-card .card-reveal .card-title {
+    color: #1a1a2e !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1rem !important;
+    border-bottom: 1px solid rgba(200, 129, 58, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.book-card .card-reveal p.card-text {
+    color: #1a1a2e !important;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.book-card .card-reveal strong {
+    color: #1a1a2e !important;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.92rem;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.modal {
+  border-radius: 12px !important;
+  background-color: #fdf0e2 !important;
+}
+ 
+.modal-heading {
+  font-family: 'Playfair Display', serif;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+ 
+.modal-sub {
+  color: #7a6652;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.submit-btn {
+  background-color: #533204 !important;
+  border-radius: 30px;
+  padding: 0 36px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(200,129,58,0.35);
+}
+ 
+.submit-btn:hover { background-color: #fdf0e2 !important; }
