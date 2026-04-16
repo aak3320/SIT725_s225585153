@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aakash">
+    <meta name="description" content="This webpage gives information Books.">
+    <title>Task 5.2P | MVC</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav>
+        <div class="nav-wrapper navbar-size">
+            <a href="#!" class="brand-logo left">
+                <span class="nav-title">📚 BookShelf</span>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><u><a target="_blank" href="https://github.com/aak3320/SIT725_s225585153.git">GitHub</a></li></u>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Main Body - Main image, Book Card,, Join club form -->
+    <main class="main-body">
+        <div class="container">
+
+            <!--Banner Image section-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h1 id="heading">Welcome to Bookshelf</h1>
+                    <p class="flow-text">
+                        This application is built to explore computer related books in easy and organized way. It allows
+                        users to view
+                        book titles, author, and description.
+                    </p>
+                </div>
+                <div class="col s12 center-align">
+                    <img class="materialboxed materialboxed-image center" src="images/Banner_image.png"
+                        alt="Bookshelf banner" />
+                </div>
+
+                <div class="col s12 center-align">
+                    <h1 id="heading">Books Catalogue developed by s225585153</h1>
+                    <p class="flow-text">
+                        Click the button below to get all books from the server:
+                    </p>
+                </div>
+
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="fetchBooksButton">
+                        <i class="material-icons left">menu_book</i>Get All Books
+                    </a>
+                </div>
+            </div>
+
+            <!--All books title and price in AUD-->
+            <div class="row">
+                <div class="col s12">
+                    <div id="bookList"></div>
+                </div>
+            </div>
+
+            <!--Selected books details-->
+            <div class="row">
+                <div class="col s12">
+                    <div id="bookDetail">
+                        <table>
+                            <tr>
+                                <td>Title:</td>
+                                <td id="Title"></td>
+                            </tr>
+                            <tr>
+                                <td>Author:</td>
+                                <td id="Author"></td>
+                            </tr>
+                            <tr>
+                                <td>Year:</td>
+                                <td id="Year"></td>
+                            </tr>
+                            <tr>
+                                <td>Genre:</td>
+                                <td id="Genre"></td>
+                            </tr>
+                            <tr>
+                                <td>Summary:</td>
+                                <td id="Summary"></td>
+                            </tr>
+                            <tr>
+                                <td>Price (AUD):</td>
+                                <td id="Price"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+<script>
+
+    const btn = document.getElementById('fetchBooksButton');
+    const statusMsg = document.getElementById('statusMsg')
+    const bookList = document.getElementById('bookList');
+    const bookDetails = document.getElementById('bookDetails');
+
+    //function for show full book details.
+    async function showDetail(id) {
+        try {
+            const res = await fetch(`/api/books/${id}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const body = await res.json();   // { statusCode, data, message }
+            const book = body.data;
+
+            // Fill in the detail panel fields
+            document.getElementById('Title').textContent = book.title;
+            document.getElementById('Author').textContent = book.author;
+            document.getElementById('Year').textContent = book.year;
+            document.getElementById('Genre').textContent = book.genre;
+            document.getElementById('Summary').textContent = book.summary;
+
+            const price = typeof book.price === 'string' ? book.price : (book.price && book.price.$numberDecimal) || book.price || '';
+            document.getElementById('Price').textContent = `${book.currency || 'AUD'} ${price}`;
+
+            // Show the detail panel
+            bookDetail.style.display = 'block';
+
+        } catch (err) {
+            console.error('Error fetching book detail:', err);
+        }
+    }
+
+
+    //rendering book data and showing information of books
+    function render(books) {
+        bookList.innerHTML = '';
+        bookDetail.style.display = 'none';
+
+        if (!Array.isArray(books) || books.length === 0) {
+            bookList.textContent = 'No books found.';
+            return;
+        }
+
+        for (const book of books) {
+
+            const price = typeof book.price === 'string' ? book.price : (book.price && book.price.$numberDecimal) || book.price || '';
+
+            const p = document.createElement('p');
+            p.textContent = `${book.title} ${price} ${book.currency || 'AUD'}`;
+
+            //Click event, if someone clicks on book title
+            p.addEventListener('click', () => showDetail(book.id));
+            bookList.appendChild(p);
+        }
+    }
+
+    //click event - whenever someone click Get all books button - it will fetch data from api/books
+    btn.addEventListener('click', async () => {
+        bookList.textContent = 'Loading...';
+        bookDetail.style.display = 'none';
+        try {
+            const res = await fetch('/api/books');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const body = await res.json();
+            render(body.data);
+            //console.log(body.data);
+        } catch (err) {
+            console.error('Error fetching books:', err);
+            bookList.textContent = 'Error fetching books.';
+        }
+    });
+
+</script>
+
+</html>
