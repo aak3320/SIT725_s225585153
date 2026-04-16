@@ -1,0 +1,124 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fdf6ec;
+    color: #1a1a2e;
+}
+
+nav {
+    background-color: #1a1a2e !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-size {
+    width: 95%;
+    margin: 0 auto;
+}
+
+nav .brand-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fdf6ec;
+    letter-spacing: 1px;
+}
+
+nav ul a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+nav ul a:hover {
+    color: #c8813a !important;
+}
+
+#heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #2a2e1a;
+    margin-top: 50px;
+    line-height: 1.2;
+    text-shadow: 1px 2px 0 rgba(200, 129, 58, 0.15);
+}
+
+.flow-text {
+    color: #533204;
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 24px;
+    font-size: 1.1rem !important;
+    line-height: 1.75;
+}
+
+.materialboxed-image {
+    margin: 0 auto;
+    max-height: 380px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.18);
+    display: block;
+}
+
+.click-me-button {
+    background-color: #fdf6ec !important;
+    color: #533204;
+    border-radius: 30px;
+    padding: 0 36px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 36px;
+    font-size: 1rem;
+    box-shadow: 0 4px 16px rgba(200, 129, 58, 0.4);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.click-me-button:hover {
+    background-color: #533204 !important;
+    color: #fdf6ec;
+    box-shadow: 0 6px 20px rgba(160, 97, 30, 0.45);
+}
+
+#bookList p {
+    padding: 10px 14px;
+    margin: 6px 0;
+    background: #ffffff;
+    border-left: 4px solid #c8813a;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    color: #1a1a2e;
+}
+
+#bookList p:hover {
+    background: #fdf0e2;
+}
+
+#bookDetail {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    border-left: 4px solid #533204;
+    display: none;
+}
+
+#bookDetail h5 {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(200, 129, 58, 0.3);
+    padding-bottom: 8px;
+}
+
+#bookDetail table {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+}
