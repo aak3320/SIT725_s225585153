@@ -1,0 +1,20 @@
+{
+  "name": "week6",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5",
+    "request": "^2.88.2"
+  }
+}

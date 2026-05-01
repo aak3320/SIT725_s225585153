@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aakash">
+    <meta name="description" content="This webpage is for testing my code using Mocha and Chai.">
+    <title>Task 6.2C | Testing</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>Unit Converter</h1>
+
+    <form id="converterForm" action="/convert/temperature" method="GET">
+        <label for="convertType">Select Conversion:</label>
+        <select id="convertType" onchange="updateForm()">
+            <option value="temperature">Celsius to Fahrenheit</option>
+            <option value="distance">Kilometres to Miles</option>
+            <option value="weight">Kilograms to Pounds</option>
+        </select>
+
+        <label for="value" id="valueLabel">Enter Celsius:</label>
+        <input type="text" id="value" name="celsius" required>
+
+        <button type="submit">Convert</button>
+    </form>
+
+</body>
+
+<script>
+    const actions = {
+        temperature: '/convert/temperature',
+        distance: '/convert/distance',
+        weight: '/convert/weight'
+    };
+
+    const labels = {
+        temperature: 'Enter Celsius:',
+        distance: 'Enter Kilometres:',
+        weight: 'Enter Kilograms:'
+    };
+
+    const names = {
+        temperature: 'celsius',
+        distance: 'kilometers',
+        weight: 'kilograms'
+    };
+
+    function updateForm() {
+        const convertType = document.getElementById('convertType').value;
+        document.getElementById('converterForm').action = actions[convertType];
+        document.getElementById('valueLabel').textContent = labels[convertType];
+        document.getElementById('value').name = names[convertType];
+    }
+</script>
+
+</html>

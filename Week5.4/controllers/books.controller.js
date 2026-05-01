@@ -114,6 +114,18 @@ exports.updateBook = async (req, res, next) => {
             });
         }
  
+        //if price > 0 is boundary here.
+        if (body.price !== undefined) {
+            const priceNum = parseFloat(body.price);
+            if (isNaN(priceNum) || priceNum <= 0) {
+                return res.status(400).json({
+                    statusCode: 400,
+                    data:       null,
+                    message:    'price must be a positive number greater than 0'
+                });
+            }
+        }
+
         //Mongoose schema validation runs inside updateBook()
         const updated = await booksService.updateBook(bookId, body);
  
