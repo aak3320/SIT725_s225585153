@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7: Live Poll</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Live Poll</h1>
+        <p class="subheading">Vote and see the results update in real-time!</p>
+
+        <!-- Questions -->
+        <div class="question">
+            <h2>What is your favourite movie genre?</h2>
+        </div>
+
+        <!-- Vote options -->
+        <div class="options">
+            <button class="vote-btn" onclick="submitVote('Drama')">Drama</button>
+            <button class="vote-btn" onclick="submitVote('Action')">Action</button>
+            <button class="vote-btn" onclick="submitVote('Comedy')">Comedy</button>
+            <button class="vote-btn" onclick="submitVote('Horror')">Horror</button>
+        </div>
+
+        <p class="hidden" id="vote-message"></p>
+
+        <!-- Live Results -->
+        <div class="results">
+
+            <h3>Live Results</h3>
+
+            <div id="results-container">
+
+                <div class="result-row">
+                    <div class="result-label">
+                        <span>Drama</span>
+                        <span id="count-Drama">0 votes (0%)</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="bar-Drama"></div>
+                    </div>
+                </div>
+
+                <div class="result-row">
+                    <div class="result-label">
+                        <span>Action</span>
+                        <span id="count-Action">0 votes (0%)</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="bar-Action"></div>
+                    </div>
+                </div>
+
+                <div class="result-row">
+                    <div class="result-label">
+                        <span>Comedy</span>
+                        <span id="count-Comedy">0 votes (0%)</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="bar-Comedy"></div>
+                    </div>
+                </div>
+
+                <div class="result-row">
+                    <div class="result-label">
+                        <span>Horror</span>
+                        <span id="count-Horror">0 votes (0%)</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="bar-Horror"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="total-label">Total Votes: <span id="total-votes">0</span></p>
+
+        </div>
+
+        <div class="log">
+            <h3>Live Activity</h3>
+            <ul id="activity-log"></ul>
+        </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

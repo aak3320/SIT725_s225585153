@@ -2,7 +2,7 @@ var express = require("express")
 const path = require('path');
 const mongoose = require('mongoose');
 var app = express();
-var port = process.env.port || 3001;
+var PORT = process.env.PORT || 3001;
 
 // Middleware to parse JSON bodies (for POST requests)
 app.use(express.json());
@@ -22,6 +22,6 @@ const booksRoute = require('./routes/books.routes');
 
 app.use('/api/books', booksRoute);
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
